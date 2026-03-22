@@ -12,13 +12,16 @@ import (
 )
 
 func main() {
-	filePath := flag.String("file-path", "/Users/nealmorris/Downloads/5017_08022026.csv", "the file to process")
+
+	filePath := flag.String("file-path", "/Users/nealmorris/Downloads/5017_21032026.csv", "the file to process")
 	flag.Parse()
 
-	if *filePath == "" {
+	if filePath == nil || len(*filePath) == 0 {
 		fmt.Println("file-path flag is required")
 		os.Exit(1)
+		return
 	}
+
 	ingestFile(*filePath)
 }
 
